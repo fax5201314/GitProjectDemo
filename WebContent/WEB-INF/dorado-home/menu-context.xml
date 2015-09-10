@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+
+	<!-- 菜单分类 -->
+	<bean id="menuGroupList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<!-- 登陆首页 -->
+				<ref bean="menuGroupHome" />
+				<!-- APP -->
+				<ref bean="menuGroupRole" />
+				<!-- APP -->
+				<ref bean="menuGroupParam" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+	<!-- 登陆首页 -->
+	<bean id="menuGroupHome" class="com.mbpsoft.web.sgwtool.menu.vo.MenuGroup">
+		<property name="name" value="首页" />
+		<property name="icon" value="url(>skin>common/icons.gif) -200px -120px" />
+		<property name="details">
+			<list>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="页面数据作成" />
+					<property name="icon" value="url(>skin>common/icons.gif) -20px -100px" />
+					<property name="url" value="autotool.AutoTool.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="項目名称マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="itemname.ItemNameList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="項目IDマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="itemid.ItemIdList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="論理項目マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="logicalitemname.LogicalItemNameList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="機能項目IDXマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="funcitemidx.FuncItemIdxList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="機能表示文言IDXマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="funcliteralidx.FuncLiteralIdxList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="表示文言グループマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="literalgrp.LiteralGrpList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="機能挿入グループIDXマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="injectiongrpidx.InjectionGrpIdxList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="挿入グループマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="injectiongrp.InjectionGrpList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="編集可能パネルマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="editablepanel.EditablePanelList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="要素マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="element.ElementList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="要素別属性マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="elementatrr.ElementAttrList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="項目テンプレートマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="itemtemplate.ItemTemplateList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="項目テンプレート別属性マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="templateattr.TemplateAttrList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="項目テンプレート構成マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="templateconst.TemplateConstList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="具象項目マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -60px -40px" />
+					<property name="url" value="concreteitem.ConcreteItemList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="具象項目別属性マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -60px -40px" />
+					<property name="url" value="concreteattr.ConcreteAttrList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="具象項目別値マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -60px -40px" />
+					<property name="url" value="concreteval.ConcreteValList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="具象項目別サイズマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -60px -40px" />
+					<property name="url" value="concretesize.ConcreteSizeList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="具象項目テンプレートマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -60px -40px" />
+					<property name="url" value="concretetemplate.ConcreteTemplateList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="具象項目別バリデーションマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -60px -40px" />
+					<property name="url" value="concretevalid.ConcreteValidList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="バリデーションマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="validation.ValidationList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="バリデーショングループマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -120px -120px" />
+					<property name="url" value="validationgrp.ValidationGrpList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="①一覧表示マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -280px -60px" />
+					<property name="url" value="list.ListList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="②一覧表示ヘッダーグループマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -280px -60px" />
+					<property name="url" value="listheadergrp.ListHeaderGrpList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="③一覧表示項目グループマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -280px -60px" />
+					<property name="url" value="listitemgrp.ListItemGrpList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="①画面アクションマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -100px -80px" />
+					<property name="url" value="screenaction.ScreenActionList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="②画面処理マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -100px -80px" />
+					<property name="url" value="screentrn.ScreenTrnList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="③処理マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -100px -80px" />
+					<property name="url" value="trn.TrnList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="④処理BLグループマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -100px -80px" />
+					<property name="url" value="trnblgrp.TrnBlgrpList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="⑤BLグループマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -100px -80px" />
+					<property name="url" value="blgrp.BlgrpList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="⑥BLマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -100px -80px" />
+					<property name="url" value="bl.BlList.d" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 権限 -->
+	<bean id="menuGroupRole" class="com.mbpsoft.web.sgwtool.menu.vo.MenuGroup">
+		<property name="name" value="各種マスタ設定（権限系）" />
+		<property name="icon" value="url(>skin>common/icons.gif) -120px -80px" />
+		<property name="details">
+			<list>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="①ロールマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="role.RoleList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="②ロール名称マスタ（TODOキーなし）" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="rolenm.RoleNmList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="③権限サマリグループマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="authsumgrp.AuthsumgrpList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="④権限グループマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="authgrp.AuthgrpList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="⑤ロール権限グループIDXマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="roleauthgrpidx.RoleAuthgrpIdxList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="⑥権限サマリグループ権限IDXマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="authsumgrpidx.AuthsumgrpIdxList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="⑦権限マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="auth.AuthList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="⑧権限グループ権限IDXマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="authgrpauthidx.AuthgrpAuthIdxList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="⑨制御マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="control.ControlList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="⑩権限制御IDXマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="authcontrolidx.AuthControlIdxList.d" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- パラメータ -->
+	<bean id="menuGroupParam" class="com.mbpsoft.web.sgwtool.menu.vo.MenuGroup">
+		<property name="name" value="パラメータ" />
+		<property name="icon" value="url(>skin>common/icons.gif) -120px -80px" />
+		<property name="details">
+			<list>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="パラメータマスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="param.ParamList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="パラメータ値マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="paramval.ParamValList.d" />
+				</bean>
+				<bean class="com.mbpsoft.web.sgwtool.menu.vo.MenuItem">
+					<property name="name" value="画面マスタ" />
+					<property name="icon" value="url(>skin>common/icons.gif) -40px -40px" />
+					<property name="url" value="screen.ScreenList.d" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>  

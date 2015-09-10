@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 数据库连接的属性文件 -->
+	<context:property-placeholder location="/WEB-INF/dorado-home/database.properties" />
+
+	<!-- 数据库命名策略 -->
+	<bean id="dbNamingStrategy" class="com.mbpsoft.web.common.db.DbNamingStrategy">
+		<!-- 表名前缀 -->
+		<property name="tablePrefix" value="" />
+		<!-- 下划线 -->
+		<property name="isAddUnderscores" value="true" />
+	</bean>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<!-- 连接配置 -->
+		<property name="jdbcUrl" value="${jdbc.oracle.url}" />
+		<property name="user" value="${jdbc.oracle.username}" />
+		<property name="password" value="${jdbc.oracle.password}" />
+		<!-- 驱动（Oracle） -->
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
+		<!-- 连接池配置 -->
+		<property name="initialPoolSize" value="1" />
+		<property name="minPoolSize" value="3" />
+		<property name="maxPoolSize" value="30" />
+		<property name="maxIdleTime" value="7200" />
+		<property name="acquireIncrement" value="5" />
+		<property name="checkoutTimeout" value="10000" />
+		<property name="maxIdleTimeExcessConnections" value="10" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="namingStrategy" ref="dbNamingStrategy" />
+		<property name="hibernateProperties">
+			<props>
+				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop> -->
+				<prop key="hibernate.default_schema">${jdbc.oracle.username}</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				<prop key="hibernate.cache.use_query_cache">false</prop>
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.jdbc.batch_size">30</prop>
+			</props>
+		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.mbpsoft</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 支持@Transactional标记的声明式事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+
+</beans>

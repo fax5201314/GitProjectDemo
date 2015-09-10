@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	 http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	 http://www.springframework.org/schema/tx
+	 http://www.springframework.org/schema/tx/spring-tx-4.0.xsd 
+	 http://www.springframework.org/schema/jee
+	 http://www.springframework.org/schema/jee/spring-jee-4.0.xsd 
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	 http://www.springframework.org/schema/context
+	 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+	<!-- 组件扫描装载 -->
+	<context:component-scan base-package="com.mbpsoft.web" />
+
+	<!-- AOP -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<bean parent="dorado.genericObjectListenerRegister">
+		<property name="listener">
+			<bean class="com.mbpsoft.web.common.dorado.interceptor.ViewInterceptor">
+				<property name="order" value="1" />
+				<property name="pattern" value="*" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- CacheManager -->
+	<bean id="appCacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:app-ehcache.xml" />
+	</bean>
+
+	<bean id="appCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager" ref="appCacheManager" />
+		<property name="cacheName" value="appCache" />
+	</bean>
+	
+</beans>
